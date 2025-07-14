@@ -1,42 +1,53 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Defeat Snorbo!</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Defeat Snorbo!</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Defeat Snorbo in Rock Paper Scissors!</h1>
-        </header>
+  <div class="container">
+    <header>
+      <h1>Defeat Snorbo in Rock Paper Scissors!</h1>
+    </header>
 
-        <div class="scoreboard glass">
-            <div class="score">
-                <h2>Your Score: <span id="player-score">0</span></h2>
-            </div>
-            <div class="score">
-                <h2>Snorbo's Score: <span id="snorbo-score">0</span></h2>
-            </div>
-        </div>
-
-        <div class="game-area">
-            <div class="snorbo-box glass">
-                <img src="assets/Snorbo_Happy.png" alt="Snorbo" class="snorbo-img" />
-                <p class="snorbo-status">Snorbo is waiting...</p>
-            </div>
-
-            <div class="choices glass">
-                <h2>Choose your move:</h2>
-                <div class="buttons">
-                    <button class="choice" onclick="game('rock')">🪨 Rock</button>
-                    <button class="choice" onclick="game('paper')">📄 Paper</button>
-                    <button class="choice" onclick="game('scissors')">✂️ Scissors</button>
-
-                </div>
-            </div>
-        </div>
+    <div class="scoreboard glass">
+      <div class="score">
+        <h2>Your Score: <span id="player-score">0</span></h2>
+      </div>
+      <div class="score">
+        <h2>Snorbo's Score: <span id="snorbo-score">0</span></h2>
+      </div>
     </div>
-    <script src="/script.js"></script>
+
+    <div class="choices-display glass">
+      <div class="choice-box">
+        <h3>You Chose</h3>
+        <div id="player-choice" class="icon-display">❔</div>
+      </div>
+      <div class="choice-box">
+        <h3>Snorbo Chose</h3>
+        <div id="snorbo-choice" class="icon-display">❔</div>
+      </div>
+    </div>
+
+    <div class="game-area">
+      <div class="snorbo-box glass">
+        <img src="assets/Snorbo_Happy.png" alt="Snorbo" class="snorbo-img" />
+        <p class="snorbo-status" id="result-message">Snorbo is waiting...</p>
+      </div>
+
+      <div class="choices glass">
+        <h2>Choose your move:</h2>
+        <div class="buttons">
+          <button class="choice" onclick="game('rock')">🪨 Rock</button>
+          <button class="choice" onclick="game('paper')">📄 Paper</button>
+          <button class="choice" onclick="game('scissors')">✂️ Scissors</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
