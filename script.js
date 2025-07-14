@@ -7,7 +7,7 @@ function getSnorboChoice() {
 }
 
 function game(playerChoice) {
-    const snorboChoice = getSnorboChoice();
+    let snorboChoice = getSnorboChoice();
 
     let resultMessage = "";
     let snorboImage = "assets/Snorbo_Happy.png";
