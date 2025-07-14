@@ -3,7 +3,7 @@ let snorbo_Score = 0;
 
 function getSnorboChoice() {
     const choices = ['rock', 'paper', 'scissors'];
-    return choices[Math.floor(Math.random() * 4)];
+    return choices[Math.floor(Math.random() * 3)];
 }
 
 function game(playerChoice) {
