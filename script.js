@@ -10,7 +10,6 @@ function emoji(choice) {
   if (choice === 'rock') return '🪨';
   if (choice === 'paper') return '📄';
   if (choice === 'scissors') return '✂️';
-  return '❔';
 }
 
 function game(playerChoice) {
