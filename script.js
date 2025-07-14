@@ -1,39 +1,45 @@
-let your_Score = 0;
-let snorbo_Score = 0;
+let yourScore = 0;
+let snorboScore = 0;
 
 function getSnorboChoice() {
-    const choices = ['rock', 'paper', 'scissors'];
-    return choices[Math.floor(Math.random() * 3)];
+  const choices = ['rock', 'paper', 'scissors'];
+  return choices[Math.floor(Math.random() * choices.length)];
+}
+
+function emoji(choice) {
+  if (choice === 'rock') return '🪨';
+  if (choice === 'paper') return '📄';
+  if (choice === 'scissors') return '✂️';
+  return '❔';
 }
 
 function game(playerChoice) {
-    let snorboChoice = getSnorboChoice();
+  const snorboChoice = getSnorboChoice();
 
-    let resultMessage = "";
-    let snorboImage = "assets/Snorbo_Happy.png";
+  document.getElementById('player-choice').textContent = emoji(playerChoice);
+  document.getElementById('snorbo-choice').textContent = emoji(snorboChoice);
 
-    if (playerChoice === snorboChoice) {
-        resultMessage = "It's a tie!";
-        snorboImage = "assets/Snorbo_Happy.png";
-    } 
-    else if (
-        (playerChoice === 'rock' && snorboChoice === 'scissors') ||
-        (playerChoice === 'paper' && snorboChoice === 'rock') ||
-        (playerChoice === 'scissors' && snorboChoice === 'paper')
-    ) {
-        your_Score++;
-        resultMessage = "Snorbo lost!";
-        snorboImage = "assets/Snorbo_Sad.png";
-    }
-    else {
-        snorbo_Score++;
-        resultMessage = "Snorbo won!";
-        snorboImage = "assets/Snorbo_Happy.png";
-    }
+  let result = "";
 
-    document.getElementById("player-score").textContent = your_Score;
-    document.getElementById("snorbo-score").textContent = snorbo_Score;
-
-    document.querySelector(".snorbo-img").src = snorboImage;
-    document.querySelector(".snorbo-status").textContent = resultMessage;
+  if (playerChoice === snorboChoice) {
+    result = "It's a Draw!";
+    snorboImage = "assets/Snorbo_Happy.png";
+  } else if (
+    (playerChoice === 'rock' && snorboChoice === 'scissors') ||
+    (playerChoice === 'paper' && snorboChoice === 'rock') ||
+    (playerChoice === 'scissors' && snorboChoice === 'paper')
+  ) {
+    result = "Snorbo Lost!";
+    snorboImage = "assets/Snorbo_Sad.png";
+    yourScore++;
+  } else {
+    result = "Snorbo Wins!";
+    snorboScore++;
+    snorboImage = "assets/Snorbo_Happy.png";
+  }
+  
+  document.querySelector(".snorbo-img").src = snorboImage;
+  document.getElementById("result-message").textContent = result;
+  document.getElementById("player-score").textContent = yourScore;
+  document.getElementById("snorbo-score").textContent = snorboScore;
 }
