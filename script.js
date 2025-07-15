@@ -1,6 +1,6 @@
 let yourScore = 0;
 let snorboScore = 0;
-
+let Tie=0
 function getSnorboChoice() {
   const choices = ['rock', 'paper', 'scissors'];
   return choices[Math.floor(Math.random() * choices.length)];
@@ -22,7 +22,8 @@ function game(playerChoice) {
 
   if (playerChoice === snorboChoice) {
     result = "It's a Draw!";
-    snorboImage = "assets/Snorbo_Happy.png";
+    Tie++;
+    snorboImage = "assets/Snorbo_Evil.png";
   } else if (
     (playerChoice === 'rock' && snorboChoice === 'scissors') ||
     (playerChoice === 'paper' && snorboChoice === 'rock') ||
@@ -41,4 +42,5 @@ function game(playerChoice) {
   document.getElementById("result-message").textContent = result;
   document.getElementById("player-score").textContent = yourScore;
   document.getElementById("snorbo-score").textContent = snorboScore;
+  document.getElementById("Tie-score").textContent = Tie;
 }
